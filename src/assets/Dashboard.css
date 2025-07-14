@@ -1,0 +1,536 @@
+
+
+
+
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+  margin-top: 56px; /* Navbar height */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: white;
+  transition: all 0.3s ease;
+  height: calc(100vh - 56px);
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.sidebar-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.sidebar-nav {
+  padding: 0.5rem 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar-item i {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-item.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-left: 3px solid #3498db;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  margin-left: 250px; /* Sidebar width */
+  transition: margin 0.3s ease;
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 60px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-actions .btn {
+  margin-left: 0.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-info p {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.stat-change i {
+  margin-right: 0.25rem;
+}
+
+.stat-change.up {
+  color: #28a745;
+}
+
+.stat-change.down {
+  color: #dc3545;
+}
+
+/* Charts Row */
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-header h4 {
+  margin-bottom: 0;
+}
+
+.chart-placeholder {
+  height: 250px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+}
+
+/* Bottom Row */
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+}
+
+.activities-card, .projects-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+}
+
+.card-header h4 {
+  margin-bottom: 0;
+}
+
+.card-header a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+/* Activities List */
+.activities-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: #6c757d;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-user {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.activity-action {
+  color: #6c757d;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+.activity-time {
+  color: #6c757d;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Projects List */
+.projects-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.project-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-info h5 {
+  margin-bottom: 0.5rem;
+}
+
+.project-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.status.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.finishing {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.on-hold {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.team-size {
+  font-size: 0.75rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+}
+
+.project-progress {
+  height: 8px;
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  background: #3498db;
+}
+
+.project-progress span {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 60px;
+  }
+  
+  .sidebar.open {
+    width: 250px;
+    z-index: 1000;
+  }
+  
+  .main-content {
+    margin-left: 60px;
+  }
+  
+  .sidebar.open + .main-content {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .charts-row, .bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header-actions .btn {
+    margin-left: 0;
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+  
+  .header-actions .btn:last-child {
+    margin-right: 0;
+  }
+}/* Dashboard Specific Styles */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.75rem;
+  opacity: 0.2;
+  color: #3498db;
+}
+
+/* Table Styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  border-top: none;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Document List */
+.document-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.document-item {
+  display: flex;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f8f9fa;
+  align-items: center;
+}
+
+.document-item:last-child {
+  border-bottom: none;
+}
+
+.document-icon {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-right: 1rem;
+}
+
+.document-details {
+  flex: 1;
+}
+
+.document-details h6 {
+  margin-bottom: 0.25rem;
+}
+
+.document-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Dividend Calendar */
+.dividend-calendar {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.calendar-nav button {
+  margin-left: 0.5rem;
+}
+
+.calendar-body {
+  display: flex;
+}
+
+.calendar-day {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.day-header {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.day-events {
+  min-height: 80px;
+}
+
+.event {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.dividend-event {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Property Progress Bars */
+.progress {
+  background-color: #e9ecef;
+}
+
+.progress-bar {
+  background-color: #28a745;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .calendar-body {
+    flex-direction: column;
+  }
+  
+  .calendar-day {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
